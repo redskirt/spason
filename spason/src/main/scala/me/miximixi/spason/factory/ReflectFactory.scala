@@ -1,13 +1,16 @@
 package me.miximixi.spason.factory
 
-import reflect._
+import com.sasaki.packages._
 import independent._
+import constant._
+import constant.original._
+import reflect._
 import scala.reflect.runtime.universe._
 import me.miximixi.spason.annotation.Alias._
   
 /**
  * @Author Sasaki
- * @Mail wei.liu@suanhua.org
+ * @Mail redskirt@outlook.com
  * @Timestamp 2017-12-13 下午16:48:03
  * @Description 
  */

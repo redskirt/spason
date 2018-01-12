@@ -1,5 +1,6 @@
 package me.miximixi.spason.test.fake
 
+import com.sasaki.packages._
 import independent._
 import com.sasaki.spark.enums.SparkType.Spark
 
@@ -94,15 +95,5 @@ object FakeDatum {
 					  }
 					  """.trim, "\n", "\t", "  ")
 		  spark.sparkContext.parallelize(jsons)
-  }
-  
-  //					  ${
-//					  	if(0 == i%2) 
-//					  	  s""","timestamp":"$currentFormatTime""""
-//					  	else
-//					  	  ""
-//					  }
-
-  def main(args: Array[String]): Unit = {
   }
 }

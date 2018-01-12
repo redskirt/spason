@@ -4,11 +4,14 @@ import reflect._
 import scala.reflect.runtime.universe._
 import com.sasaki.spark.enums.SparkType._
  
+import com.sasaki.packages._
 import independent._
+import constant.original._
+import reflect._
 
 /**
   * @Author Sasaki
-  * @Mail wei.liu@suanhua.org
+  * @Mail redskirt@outlook.com
   * @Timestamp 2017-12-5 上午10:46:47
   * @Description
   */
@@ -33,7 +36,7 @@ class JsonRDD(that: RDD[String])(implicit _spark_ : Spark) extends RDD[String](t
       case Some(_) =>
         val Apply(_, Literal(Constant(standardSample: String)) :: Nil) = opBody.head.tree
         (true, standardSample)
-      case None => (false, $e)
+      case None => (false, constant.$e)
     }
 
     lazy val _rddJson = _spark_.sparkContext.parallelize(Seq(fakeSchema___standardSample._2))

@@ -13,7 +13,7 @@ import me.miximixi.spason.json.JsonRDD
 
 /**
  * @Author Sasaki 
- * @Mail wei.liu@suanhua.org
+ * @Mail redskirt@outlook.com
  * @Timestamp 2017-12-13 上午10:39:23
  * @Description 
  */
@@ -28,7 +28,7 @@ class SpasonTutorias extends FunSuite
   import me.miximixi.spason.test.fake.FakeDatum._
   import me.miximixi.spason.test.poso._
    
-  lazy val spark = initHandler("SpasonTutorias", defaultSettings, enableHive = true)
+  lazy val spark = buildLocalSparkSession(true)
   import spark._
   implicit val spark_ = spark
   
@@ -54,7 +54,9 @@ class SpasonTutorias extends FunSuite
     _rddSingleJson.selfCheck[SingleJson](false).createJsonMappedTempTable(T)
     
     val rddResult = sql(buildStatement[SingleJson](T)).toDF().rdd
-    AutomatedTargetHolder.buildTargetDataFrame[SingleJson](rddResult, ProvideMode.SINGLE_TO_SINGLE).createTempView(T2)  
+    AutomatedTargetHolder
+      .buildTargetDataFrame[SingleJson](rddResult, ProvideMode.SINGLE_TO_SINGLE)
+      .createTempView(T2)  
     sql(s"select * from $T2").show(false)
   }
 
@@ -65,7 +67,9 @@ class SpasonTutorias extends FunSuite
     _rddMultipleJson.selfCheck[MultipleJson](false).createJsonMappedTempTable(T)  
     
     val rddResult = sql(buildStatement[MultipleJson](T)).toDF().rdd
-    AutomatedTargetHolder.buildTargetDataFrame[MultipleJson](rddResult, ProvideMode.SINGLE_TO_MULTIPLE).createTempView(T2)  
+    AutomatedTargetHolder
+      .buildTargetDataFrame[MultipleJson](rddResult, ProvideMode.SINGLE_TO_MULTIPLE)
+      .createTempView(T2)  
     sql(s"select * from $T2").show(false)
   }
   
@@ -76,7 +80,9 @@ class SpasonTutorias extends FunSuite
 	 _rddIncompleteSchemeJson.selfCheck[IncompleteSchemeJson](true).createJsonMappedTempTable(T)  
 	  
 	  val rddResult = sql(buildStatement[IncompleteSchemeJson](T, "id != -1")).toDF().rdd
-	  AutomatedTargetHolder.buildTargetDataFrame[IncompleteSchemeJson](rddResult, ProvideMode.SINGLE_TO_MULTIPLE).createTempView(T2)  
+	  AutomatedTargetHolder
+  	  .buildTargetDataFrame[IncompleteSchemeJson](rddResult, ProvideMode.SINGLE_TO_MULTIPLE)
+  	  .createTempView(T2)  
 	  sql(s"select * from $T2").show(false)
   }
   

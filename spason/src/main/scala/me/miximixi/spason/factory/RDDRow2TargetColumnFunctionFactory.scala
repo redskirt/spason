@@ -1,6 +1,9 @@
 package me.miximixi.spason.factory
 
+import com.sasaki.packages._
 import independent._
+import constant._
+import constant.original._
 import reflect._
 import com.sasaki.spark.enums.SparkType._
 
@@ -10,7 +13,7 @@ import me.miximixi.spason.annotation.Alias._
 
 /**
  * @Author Sasaki
- * @Mail wei.liu@suanhua.org
+ * @Mail redskirt@outlook.com
  * @Timestamp 2017-10-13 下午2:28:01
  * @Description
  */

@@ -1,10 +1,11 @@
 package me.miximixi.spason.test.poso
 
-import independent._
+import com.sasaki.packages._
+import constant._
 import me.miximixi.spason.annotation._
 /**
  * @Author Sasaki
- * @Mail wei.liu@suanhua.org
+ * @Mail redskirt@outlook.com
  * @Timestamp 2017-12-13 上午11:37:14
  * @Description 
  */

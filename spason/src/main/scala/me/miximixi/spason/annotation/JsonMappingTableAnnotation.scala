@@ -4,7 +4,7 @@ import scala.annotation.StaticAnnotation
 
 /**
  * @Author Sasaki
- * @Mail wei.liu@suanhua.org
+ * @Mail redskirt@outlook.com
  * @Timestamp 2017-10-31 下午6:10:54
  * @Description 注解类，主要解释部分由 @see QueryBuilder 和 Row2TargetColumnFunctionFactory完成
  */
